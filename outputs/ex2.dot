@@ -1,0 +1,55 @@
+digraph cfg {
+splines="true";
+n0[style=rounded label=<<table border="0" cellborder="0" cellpadding="1"><tr><td>Entry</td></tr></table>> shape=box color=black];
+n1[style=rounded label=<<table border="0" cellborder="0" cellpadding="1"><tr><td>Exit</td></tr></table>> shape=box color=black];
+n2[style=rounded label=<<table border="0" cellborder="0" cellpadding="1"><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x0040059d:</font></td><td align="left">tmp_1[:64] = rsp[:64] - 0x8</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x0040059d:</font></td><td align="left">rsp[:64] = tmp_1[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x0040059d:</font></td><td align="left">tmp_2[:64] = ref(rsp[:64])</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x0040059e:</font></td><td align="left">rbp[:64] = rsp[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005a1:</font></td><td align="left">tmp_3[:64] = rsp[:64] - 0x10</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005a1:</font></td><td align="left">rsp[:64] = tmp_3[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005a1:</font></td><td align="left">cf = %c[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005a1:</font></td><td align="left">zf[:1] = narrow(%z[:64], 1)</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005a1:</font></td><td align="left">sf[:64] = %s[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005a1:</font></td><td align="left">of[:64] = %o[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005a5:</font></td><td align="left">tmp_5[:64] = rbp[:64] - 0x4</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005a5:</font></td><td align="left">rcx[:64] = tmp_5[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005a9:</font></td><td align="left">tmp_6[:64] = rbp[:64] - 0x8</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005a9:</font></td><td align="left">rdx[:64] = tmp_6[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005ad:</font></td><td align="left">tmp_7[:64] = rbp[:64] - 0xc</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005ad:</font></td><td align="left">rax[:64] = tmp_7[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005b1:</font></td><td align="left">rsi[:64] = rax[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005b4:</font></td><td align="left">edi[:64] = 0x4006b4</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005b9:</font></td><td align="left">eax[:64] = 0x0</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005be:</font></td><td align="left">tmp_8[:64] = rip[:64] + 0x5</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005be:</font></td><td align="left">tmp_9[:64] = rsp[:64] - 0x8</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005be:</font></td><td align="left">rsp[:64] = tmp_9[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005be:</font></td><td align="left">tmp_a[:64] = ref(rsp[:64])</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005be:</font></td><td align="left">call 0x4004a0</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005c3:</font></td><td align="left">tmp_b[:64] = rbp[:64] - 0xc</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005c3:</font></td><td align="left">tmp_c[:64] = ref(tmp_b[:64])</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005c3:</font></td><td align="left">tmp_d[:32] = narrow(tmp_c[:64], 32)</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005c3:</font></td><td align="left">eax[:64] = widen(tmp_d[:32], 64)</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005c6:</font></td><td align="left">tmp_f[:64] = eax[:64] == 0x3</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005c6:</font></td><td align="left">zf[:1] = narrow(%z[:64], 1)</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005c6:</font></td><td align="left">cf = %b32[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005c6:</font></td><td align="left">pf[:64] = %p[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005c6:</font></td><td align="left">sf[:64] = %s[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005c9:</font></td><td align="left">jmp if zf[:1], 0x4005db</td></tr></table>> shape=box color=black];
+n3[style=rounded label=<<table border="0" cellborder="0" cellpadding="1"><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005cb:</font></td><td align="left">tmp_11[:64] = rbp[:64] - 0x8</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005cb:</font></td><td align="left">tmp_12[:64] = ref(tmp_11[:64])</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005cb:</font></td><td align="left">tmp_13[:32] = narrow(tmp_12[:64], 32)</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005cb:</font></td><td align="left">eax[:64] = widen(tmp_13[:32], 64)</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005ce:</font></td><td align="left">tmp_15[:64] = eax[:64] == 0x4</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005ce:</font></td><td align="left">zf[:1] = narrow(%z[:64], 1)</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005ce:</font></td><td align="left">cf = %b32[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005ce:</font></td><td align="left">pf[:64] = %p[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005ce:</font></td><td align="left">sf[:64] = %s[:64]</td></tr><tr><td align="left" cellspacing="1"><font color="grey50"
+            point-size="9">0x004005d1:</font></td><td align="left">jmp if zf[:1], 0x4005db</td></tr></table>> shape=box color=black];
+n0 -> n2[ color=black dir=forward];
+n2 -> n1[label=T color=green dir=forward];
+n2 -> n3[label=F color=red dir=forward];
+n3 -> n1[ color=black dir=forward];
+}
