@@ -1,5 +1,6 @@
-// Example1:
+// Example3:
 //   * Get instructions for a complete function.
+//   * Attach register and flag information.
 //   * Make a CFG.
 
 extern crate radeco;
@@ -41,6 +42,8 @@ fn main() {
     // Get the register profile for the binary an hook it up with the parser.
     let r = r2.get_reg_info();
     p.set_register_profile(&r);
+    let flags = r2.get_flag_info();
+    p.set_flags(&flags);
 
     for op in ops.iter_mut() {
         p.parse_opinfo(op).ok();
@@ -54,5 +57,5 @@ fn main() {
     println!("[*] Begin Dot generation.");
 
     // Emit dot for the generated CFG.
-    make_dot(cfg, "outputs/ex1.dot");
+    make_dot(cfg, "outputs/ex3.dot");
 }
