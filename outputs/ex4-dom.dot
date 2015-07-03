@@ -1,0 +1,23 @@
+digraph cfg {
+splines="true";
+n0 [label=n0];
+n1 [label=n1];
+n2 [label=n2];
+n3 [label=n3];
+n4 [label=n4];
+n5 [label=n5];
+n6 [label=n6];
+n7 [label=n7];
+n8 [label=n8];
+n9 [label=n9];
+n7 -> n1;
+n2 -> n7;
+n2 -> n3;
+n6 -> n9;
+n6 -> n8;
+n5 -> n6;
+n4 -> n5;
+n2 -> n4;
+n0 -> n2;
+
+}
