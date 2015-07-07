@@ -5,3 +5,4 @@ authors = ["Sushant <sushant.dinesh94@gmail.com>"]
 
 [dependencies.radeco]
 git = "https://github.com/radare/radeco"
+branch = "dkreuter-dev"
