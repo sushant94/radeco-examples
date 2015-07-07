@@ -6,6 +6,7 @@ use radeco::middle::dot;
 use radeco::middle::ssa::SSA;
 use radeco::transform::ssa::SSAConstruction;
 
+use std::env;
 use std::io::prelude::*;
 use std::fs::File;
 
@@ -16,8 +17,11 @@ fn write_file(fname: &str, res: String) {
 
 #[cfg_attr(test, allow(dead_code))]
 fn main() {
+    let args: Vec<String> = env::args().collect();
+    let fname = if args.len() >= 2 { &*args[1] } else { "./ex-bins/simple" };
+
     // Get a new r2 instance.
-    let mut r2 = r2::R2::new("./ex-bins/key");
+    let mut r2 = r2::R2::new(fname);
 
     // Initialize with sane defaults.
     r2.init();
