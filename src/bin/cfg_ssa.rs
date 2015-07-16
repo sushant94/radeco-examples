@@ -35,28 +35,26 @@ fn main() {
     println!("[*] Got ops.");
 
     // Initialize the parser with default configurations.
-    let mut p = parser::Parser::new(None);
-    println!("[*] Begin Parse.");
-
-    // Get the register profile for the binary an hook it up with the parser.
-    let r = r2.get_reg_info().unwrap();
-    p.set_register_profile(&r);
-
-    for op in ops.iter_mut() {
-        p.parse_opinfo(op).ok();
-    }
-
-    println!("[*] Begin CFG Generation.");
-    let mut cfg = cfg::CFG::new();
-    cfg.build(&mut (p.emit_insts()));
-
-    println!("[*] Starting SSA Construction.");
     let mut ssa = SSAStorage::new();
+    let cfg = {
+        // limit scope of p
 
-    {
-        let mut con = SSAConstruction::new(&mut ssa, &cfg, &r);
-        con.run();
-    }
+        let mut p = parser::Parser::new(None);
+        println!("[*] Begin Parse.");
+
+        // Get the register profile for the binary an hook it up with the parser.
+        let r = r2.get_reg_info().unwrap();
+        p.set_register_profile(&r, &mut ssa);
+
+        for op in ops.iter_mut() {
+            p.parse_opinfo(op).ok();
+        }
+
+        println!("[*] Begin CFG Generation.");
+        let mut cfg = cfg::CFG::new();
+        cfg.build(&mut (p.emit_insts()));
+        cfg
+    };
 
     println!("[*] Begin Dot generation.");
     let res_cfg = dot::emit_dot(&cfg);
