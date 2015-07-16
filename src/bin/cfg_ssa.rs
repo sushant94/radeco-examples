@@ -3,7 +3,7 @@ extern crate radeco;
 use radeco::frontend::{parser, r2};
 use radeco::middle::{cfg};
 use radeco::middle::dot;
-use radeco::middle::ssa::SSA;
+use radeco::middle::ssa::SSAStorage;
 use radeco::transform::ssa::SSAConstruction;
 
 use std::env;
@@ -51,7 +51,7 @@ fn main() {
     cfg.build(&mut (p.emit_insts()));
 
     println!("[*] Starting SSA Construction.");
-    let mut ssa = SSA::new();
+    let mut ssa = SSAStorage::new();
 
     {
         let mut con = SSAConstruction::new(&mut ssa, &cfg, &r);
