@@ -4,7 +4,6 @@ use radeco::frontend::{parser, r2};
 use radeco::middle::{cfg};
 use radeco::middle::dot;
 use radeco::middle::ssa::SSAStorage;
-use radeco::transform::ssa::SSAConstruction;
 
 use std::env;
 use std::io::prelude::*;
@@ -27,11 +26,11 @@ fn main() {
     r2.init();
 
     // Get Instructions for 'sym.main'
-    let func_info = r2.get_function("sym.main");
+    let func_info = r2.get_function("sym.main").unwrap();
 
     // Get the ops. We should handle error here. But for this example,
     // Just panic is fine.
-    let mut ops = func_info.unwrap().ops.unwrap();
+    let ops = func_info.ops.unwrap();
     println!("[*] Got ops.");
 
     // Initialize the parser with default configurations.
@@ -45,10 +44,11 @@ fn main() {
         // Get the register profile for the binary an hook it up with the parser.
         let r = r2.get_reg_info().unwrap();
         p.set_register_profile(&r, &mut ssa);
+        p.run(ops, func_info.addr.unwrap()).unwrap();
 
-        for op in ops.iter_mut() {
-            p.parse_opinfo(op).ok();
-        }
+        // for op in ops.iter_mut() {
+        //     p.parse_opinfo(op).ok();
+        // }
 
         println!("[*] Begin CFG Generation.");
         let mut cfg = cfg::CFG::new();
