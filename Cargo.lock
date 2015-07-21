@@ -2,7 +2,7 @@
 name = "radeco-examples"
 version = "0.1.0"
 dependencies = [
- "radeco 0.1.0 (git+https://github.com/radare/radeco)",
+ "radeco 0.1.0 (git+https://github.com/radare/radeco?branch=dkreuter-dev)",
 ]
 
 [[package]]
@@ -14,17 +14,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "libc"
-version = "0.1.8"
+name = "fixedbitset"
+version = "0.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
-name = "log"
-version = "0.3.1"
+name = "libc"
+version = "0.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-dependencies = [
- "libc 0.1.8 (registry+https://github.com/rust-lang/crates.io-index)",
-]
 
 [[package]]
 name = "memchr"
@@ -35,12 +32,49 @@ dependencies = [
 ]
 
 [[package]]
+name = "num"
+version = "0.1.25"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "rand 0.3.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "petgraph"
+version = "0.1.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "fixedbitset 0.0.5 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "r2pipe"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "libc 0.1.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "radeco"
 version = "0.1.0"
-source = "git+https://github.com/radare/radeco#b14994a4931400239570a757048d7e48cc9fa54e"
+source = "git+https://github.com/radare/radeco?branch=dkreuter-dev#8ea8ab2359c9f0e1f3695c1fc6951470067fa2a4"
 dependencies = [
+ "num 0.1.25 (registry+https://github.com/rust-lang/crates.io-index)",
+ "petgraph 0.1.10 (registry+https://github.com/rust-lang/crates.io-index)",
+ "r2pipe 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "regex 0.1.36 (registry+https://github.com/rust-lang/crates.io-index)",
- "rustc-data-structures 0.1.0 (git+https://github.com/radare/radeco)",
+ "rustc-serialize 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "rand"
+version = "0.3.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "libc 0.1.8 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -57,15 +91,6 @@ dependencies = [
 name = "regex-syntax"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-
-[[package]]
-name = "rustc-data-structures"
-version = "0.1.0"
-source = "git+https://github.com/radare/radeco#b14994a4931400239570a757048d7e48cc9fa54e"
-dependencies = [
- "log 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "rustc-serialize 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)",
-]
 
 [[package]]
 name = "rustc-serialize"

@@ -18,7 +18,7 @@ fn write_file(fname: &str, res: String) {
 #[cfg_attr(test, allow(dead_code))]
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let fname = if args.len() >= 2 { &*args[1] } else { "./ex-bins/simple" };
+    let fname = if args.len() >= 2 { &*args[1] } else { "./ex-bins/simple2" };
 
     // Get a new r2 instance.
     let mut r2 = r2::R2::new(fname);
@@ -36,6 +36,7 @@ fn main() {
 
     // Initialize the parser with default configurations.
     let mut ssa = SSAStorage::new();
+    let r = r2.get_reg_info().unwrap();
     let cfg = {
         // limit scope of p
 
@@ -43,7 +44,7 @@ fn main() {
         println!("[*] Begin Parse.");
 
         // Get the register profile for the binary an hook it up with the parser.
-        let r = r2.get_reg_info().unwrap();
+
         p.set_register_profile(&r, &mut ssa);
 
         for op in ops.iter_mut() {
@@ -55,6 +56,13 @@ fn main() {
         cfg.build(&mut (p.emit_insts()));
         cfg
     };
+
+    println!("[*] Begin SSA Generation.");
+
+    {
+        let mut con = SSAConstruction::new(&mut ssa, &r);
+        con.run(&cfg);
+    }
 
     println!("[*] Begin Dot generation.");
     let res_cfg = dot::emit_dot(&cfg);
